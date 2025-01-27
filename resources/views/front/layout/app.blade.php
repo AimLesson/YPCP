@@ -6,11 +6,29 @@
     <title>@yield('title', 'Yayasan Pius')</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Keyframes for slow reveal animation */
+        @keyframes slowReveal {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Animation class */
+        .animate-slow-reveal {
+            animation: slowReveal 1s ease-out;
+        }
+    </style>
 </head>
 <body>
     @include('front.layout.nav')
 
-    <main>
+    <main class="animate-slow-reveal">
         @yield('content')
     </main>
 
