@@ -21,7 +21,7 @@
               </div>
       
               <div class="overflow-hidden rounded-lg bg-gray-100 shadow-lg">
-                <img src="{{ asset('storage/' . $profile->profile_banner1) }}" loading="lazy" alt="Photo by Manny Moreno" class="h-full w-full object-cover object-center" />
+                <img src="{{ asset('storage/' . $profile->profile_banner2) }}" loading="lazy" alt="Photo by Manny Moreno" class="h-full w-full object-cover object-center" />
               </div>
             </div>
           </div>
