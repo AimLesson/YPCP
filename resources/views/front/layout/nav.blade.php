@@ -3,7 +3,7 @@
         <!-- banner - start -->
         <div class="bg-blue-500">
             <div class="relative flex flex-wrap px-4 py-2 sm:flex-nowrap sm:items-center sm:justify-between md:mx-auto md:max-w-screen-xl sm:gap-3 sm:pr-8 md:px-8">
-                <div class="order-1 mb-2 inline-block w-11/12 max-w-screen-sm text-left items-left text-sm text-white sm:order-none sm:mb-0 sm:w-auto md:text-base flex space-x-4">
+                <div class="order-1 mb-2 inline-block w-11/12 max-w-screen-sm text-left items-left text-sm text-white sm:order-none sm:mb-0 sm:w-auto md:text-base flex space-x-4 whitespace-nowrap">
                   <p>Phone: 0812345678</p>
                   <p>|</p>
                   <p>Email: admin@bruderanpwt.sch.id</p>
