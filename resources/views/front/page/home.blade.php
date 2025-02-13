@@ -118,16 +118,16 @@
     <section class="border-y-2 border-blue-300">
         <div class="bg-white py-6 sm:py-8 lg:py-12">
             <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
-                <p class="mb-2 text-center font-bold uppercase text-blue-500 md:mb-3 lg:text-2xl">Visi</p>
-                <h2 class="mb-4 text-center capitalize text-xl font-semibold text-gray-800 md:mb-6 lg:text-2xl">{!! str_replace(['<p>', '</p>'], '', $profile->visi) !!}
-                </h2>
+                <p class="mb-2 text-center font-bold uppercase text-blue-600 md:mb-3 lg:text-2xl">Visi</p>
+                <p class="mb-4 text-center capitalize text-sm md:text-xl text-gray-800 md:mb-6">{!! str_replace(['<p>', '</p>'], '', $profile->visi) !!}
+                </p>
             </div>
         </div>
 
         <div class="bg-white py-6 sm:py-8 lg:py-12">
             <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
                 <p class="mb-2 text-center font-bold uppercase text-blue-500 md:mb-3 lg:text-2xl">Misi</p>
-                <h2 class="mb-4 text-center capitalize text-xl font-semibold text-gray-800 md:mb-6 lg:text-2xl">{!! $profile->misi !!}
+                <h2 class="mb-4 text-center capitalize text-sm md:text-xl text-gray-800 md:mb-6">{!! $profile->misi !!}
                 </h2>
             </div>
         </div>
