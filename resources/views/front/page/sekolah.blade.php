@@ -17,11 +17,23 @@
       
             <div class="mb-12 flex w-full md:mb-16 lg:w-2/3">
               <div class="relative left-12 top-12 z-10 -ml-12 overflow-hidden rounded-lg bg-gray-100 shadow-lg md:left-16 md:top-16 lg:ml-0">
-                <img src="{{ asset('storage/' . $sekolah->profile_banner1) }}" loading="lazy" alt="Photo by Kaung Htet" class="h-full w-full object-cover object-center" />
+                <img src="{{ asset('storage/' . $sekolah->profile_banner1) }}" loading="lazy" alt="Photo by Kaung Htet" 
+                  class="h-[300px] max-h-[400px] w-full object-contain object-center" />
               </div>
-      
+            
               <div class="overflow-hidden rounded-lg bg-gray-100 shadow-lg">
-                <img src="{{ asset('storage/' . $sekolah->profile_banner2) }}" loading="lazy" alt="Photo by Manny Moreno" class="h-full w-full object-cover object-center" />
+                <img src="{{ asset('storage/' . $sekolah->profile_banner2) }}" loading="lazy" alt="Photo by Manny Moreno" 
+                  class="h-[300px] max-h-[400px] w-full object-contain object-center" />
+              </div>
+            </div> 
+            
+            <div class="relative w-full max-w-4xl mx-auto overflow-hidden">
+              <div class="flex w-[500%] animate-scroll">
+                <img src="{{ asset('default.jpeg') }}" class="w-1/5 h-[300px] object-contain" alt="Image 1">
+                <img src="{{ asset('default.jpeg') }}" class="w-1/5 h-[300px] object-contain" alt="Image 2">
+                <img src="{{ asset('default.jpeg') }}" class="w-1/5 h-[300px] object-contain" alt="Image 3">
+                <img src="{{ asset('default.jpeg') }}" class="w-1/5 h-[300px] object-contain" alt="Image 4">
+                <img src="{{ asset('default.jpeg') }}" class="w-1/5 h-[300px] object-contain" alt="Image 5">
               </div>
             </div>
           </div>
