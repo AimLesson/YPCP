@@ -9,13 +9,12 @@
             <div class="mb-12">
                 <h1 class="text-3xl font-bold mb-4">{{ $news->title }}</h1>
                 <p class="text-gray-500 mb-6">{{ $news->created_at->format('d M Y') }} | {{ $news->branch->name ?? 'No Branch' }}</p>
-                <img src="{{ asset('storage/' . $news->image) ?? asset('default-image.jpg') }}" alt="{{ $news->title }}" class="w-full max-w-12xl mx-auto border shadow-md grid justify-items-center rounded-lg mb-6">
+                <img src="{{ asset('storage/' . $news->image) ?? asset('default.jpeg') }}" alt="{{ $news->title }}" class="w-full max-w-12xl mx-auto border shadow-md grid justify-items-center rounded-lg mb-6">
                 
+
                 <!-- News Content with Embedded YouTube Video -->
                 @php
-                    // Split content by <br><br> to separate paragraphs
                     $paragraphs = explode('<br><br>', $news->content);
-                    $embedPosition = 1; // Insert video after the 2nd paragraph (0-based index)
                 @endphp
 
                 <div class="prose max-w-none text-lg text-justify">

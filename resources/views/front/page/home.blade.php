@@ -104,10 +104,7 @@
                     <h2 class="mb-2 text-center text-xl font-semibold text-gray-800 sm:text-2xl md:mb-4 md:text-left">About
                         us</h2>
                     <p class="mb-6 text-gray-800 sm:text-lg md:mb-8">
-                        This is a section of some simple filler text, also known as placeholder text. It shares some
-                        characteristics of a real written text but is random or otherwise generated. It may be used to
-                        display a sample of fonts or generate text for testing. Filler text is dummy text which has no
-                        meaning however looks very similar to real text.
+                        {!! str_replace(['<p>', '</p>'], '', $profile->about) !!}
                     </p>
                 </div>
             </div>
@@ -116,18 +113,18 @@
 
     {{-- Visi Misi --}}
     <section class="border-y-2 border-blue-300">
-        <div class="bg-white py-6 sm:py-8 lg:py-12">
-            <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
+        <div class="py-2 sm:py-4 lg:py-6">
+            <div class="mx-auto max-w-screen-md px-4 md:px-8">
                 <p class="mb-2 text-center font-bold uppercase text-blue-600 md:mb-3 lg:text-2xl">Visi</p>
-                <p class="mb-4 text-center capitalize text-sm md:text-xl text-gray-800 md:mb-6">{!! str_replace(['<p>', '</p>'], '', $profile->visi) !!}
+                <p class="bg-blue-500 rounded-lg tracking-wide p-4 text-center capitalize text-sm md:text-xl text-white md:mb-6">{!! str_replace(['<p>', '</p>'], '', $profile->visi) !!}
                 </p>
             </div>
         </div>
 
-        <div class="bg-white py-6 sm:py-8 lg:py-12">
-            <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
+        <div class="bg-white py-2 sm:py-4 lg:py-6">
+            <div class="mx-auto max-w-screen-lg px-4 md:px-8">
                 <p class="mb-2 text-center font-bold uppercase text-blue-500 md:mb-3 lg:text-2xl">Misi</p>
-                <h2 class="mb-4 text-center capitalize text-sm md:text-xl text-gray-800 md:mb-6">{!! $profile->misi !!}
+                <h2 class="bg-blue-500 rounded-lg p-4 tracking-wide mb-4 text-center capitalize text-sm md:text-xl text-white md:mb-6">{!! $profile->misi !!}
                 </h2>
             </div>
         </div>
