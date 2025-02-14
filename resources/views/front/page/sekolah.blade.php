@@ -75,7 +75,7 @@
       <div class="bg-white py-6 sm:py-8 lg:py-12">
         <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
           <div class="mb-10 md:mb-16">
-            <h2 class="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-6 lg:text-3xl">Berita {{$sekolah->name}}</h2>
+            <h2 class="mb-4 text-center text-2xl font-semibold uppercase text-gray-800 md:mb-6 lg:text-3xl">Berita {{$sekolah->name}}</h2>
           </div>
       
           <div class="grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-8">
@@ -111,6 +111,27 @@
         </div>
       </div>
     </section>
+
+        {{-- Gallery --}}
+        <div class="bg-white py-6 sm:py-8 lg:py-12">
+          <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
+              <div class="mb-4 flex items-center justify-between gap-8 sm:mb-8 md:mb-12">
+                  <div class="flex items-center gap-12">
+                      <h2 class="text-2xl font-semibold uppercase text-gray-800 lg:text-3xl">Gallery</h2>
+                  </div>
+              </div>
+      
+              <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 md:gap-6 xl:gap-8">
+                  @foreach($sekolah->news->take(8) as $n)
+                      <a href="#" class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80 {{ in_array($loop->iteration, [2,3,6,7]) ? 'md:col-span-2' : '' }}">
+                          <img src="{{ asset($n->image ? 'storage/' . $n->image : 'default.jpeg') }}" loading="lazy" alt="News Image" class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
+                          <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-50"></div>
+                          <span class="relative ml-4 mb-3 inline-block text-sm text-white md:ml-5 md:text-lg">{{ $n->title }}</span>
+                      </a>
+                  @endforeach
+              </div>
+          </div>
+      </div>
   
     {{-- Personalia --}}
     {{-- <div class="bg-white py-6 sm:py-8 lg:py-12">
