@@ -13,7 +13,7 @@
                            
                 <!-- News Content (Displayed First) -->
                 <div class="prose max-w-none text-lg text-justify">
-                    {!!$news->content!!}
+                    {!! str($news->content)->sanitizeHtml()!!}
                 </div>
 
                         @if ($news->youtube_link || $news->tiktok_link || $news->instagram_link)
