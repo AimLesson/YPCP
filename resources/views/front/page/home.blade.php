@@ -116,7 +116,7 @@
         <div class="py-2 sm:py-4 lg:py-6">
             <div class="mx-auto max-w-screen-md px-4 md:px-8">
                 <p class="mb-2 text-center font-bold uppercase text-blue-600 md:mb-3 lg:text-2xl">Visi</p>
-                <p class="bg-blue-500 rounded-lg tracking-wide p-4 text-center capitalize text-sm md:text-xl text-white md:mb-6">{!! str_replace(['<p>', '</p>'], '', $profile->visi) !!}
+                <p class="bg-blue-500 rounded-lg tracking-wide p-4 text-center capitalize text-sm md:text-xl text-white md:mb-6">{!! str($profile->visi)->sanitizeHtml() !!}
                 </p>
             </div>
         </div>
@@ -124,7 +124,7 @@
         <div class="bg-white py-2 sm:py-4 lg:py-6">
             <div class="mx-auto max-w-screen-lg px-4 md:px-8">
                 <p class="mb-2 text-center font-bold uppercase text-blue-500 md:mb-3 lg:text-2xl">Misi</p>
-                <h2 class="prose bg-blue-500 rounded-lg p-4 tracking-wide mb-4 text-center capitalize text-sm md:text-xl text-white md:mb-6">{!! $profile->misi !!}
+                <h2 class="prose bg-blue-500 rounded-lg p-4 tracking-wide mb-4 text-center capitalize text-sm md:text-xl text-white md:mb-6">{!! str($profile->misi)->sanitizeHtml() !!}
                 </h2>
             </div>
         </div>
