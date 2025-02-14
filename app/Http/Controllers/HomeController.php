@@ -73,6 +73,24 @@ class HomeController extends Controller
     
         return view('front.page.aboutus', compact('profile', 'schools', 'personalia'));
     }
+
+    public function allnews()
+    {
+        $profile = Profile::first(); 
+        $schools = Branch::all();
+        $news = News::with('branch')->where('is_published', true)->orderBy('created_at', 'desc')->get();
+
+        return view('front.page.allnews', compact('profile', 'schools','news'));
+    }
+
+    public function eksis()
+    {
+        $profile = Profile::first(); 
+        $schools = Branch::all();
+        $news = News::with('branch')->where('is_published', true)->orderBy('created_at', 'desc')->paginate(4);
+
+        return view('front.page.eksis', compact('profile', 'schools','news'));
+    }
     
     
     
