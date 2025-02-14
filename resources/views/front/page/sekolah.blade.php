@@ -16,12 +16,12 @@
                   </div>
                   <!-- Slide 1 -->
                   <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                      <img src="{{ asset('storage/' . $sekolah->profile_banner1) }}" class="absolute block w-full h-full object-cover"
+                      <img src="{{ asset('storage/' . $sekolah->profile_banner1) }}" class="absolute block w-full h-full object-cover object-top"
                           alt="Image 1">
                   </div>
                   <!-- Slide 2 -->
                   <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                      <img src="{{ asset('storage/' . $sekolah->profile_banner2) }}" class="absolute block w-full h-full object-cover"
+                      <img src="{{ asset('storage/' . $sekolah->profile_banner2) }}" class="absolute block w-full h-full object-cover object-top"
                           alt="Image 2">
                   </div>
               </div>
