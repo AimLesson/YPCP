@@ -9,18 +9,13 @@
             <div class="mb-12">
                 <h1 class="text-3xl font-bold mb-4">{{ $news->title }}</h1>
                 <p class="text-gray-500 mb-6">{{ $news->created_at->format('d M Y') }} | {{ $news->branch->name ?? 'No Branch' }}</p>
-                <img src="{{ asset('storage/' . $news->image) ?? asset('default.jpeg') }}" alt="{{ $news->title }}" class="w-full max-w-12xl mx-auto border shadow-md grid justify-items-center rounded-lg mb-6">
-                
-
-                <!-- News Content with Embedded YouTube Video -->
-                @php
-                    $paragraphs = explode('<br><br>', $news->content);
-                @endphp
-
+                <img src="{{ $news->image ? asset('storage/' . $news->image) : asset('default.jpeg') }}" alt="{{ $news->title }}" class="w-full max-w-12xl mx-auto border shadow-md grid justify-items-center rounded-lg mb-6">
+                           
+                <!-- News Content (Displayed First) -->
                 <div class="prose max-w-none text-lg text-justify">
-                    @foreach ($paragraphs as $index => $paragraph)
-                        {!! $paragraph !!}<br><br> {{-- Re-add paragraph separation --}}
-                        
+                    {!! nl2br(e($news->content)) !!}
+                </div>
+
                         @if ($news->youtube_link || $news->tiktok_link || $news->instagram_link)
                         <div class="my-8 space-y-8">
                             
@@ -121,11 +116,6 @@
                             });
                         </script>
                     @endif
-                    
-                    
-                    
-                    @endforeach
-                </div>
             </div>
         </div>
 
