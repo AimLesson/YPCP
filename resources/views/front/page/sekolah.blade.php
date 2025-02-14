@@ -64,7 +64,7 @@
       <div class="bg-white py-2 sm:py-4 lg:py-6">
           <div class="mx-auto max-w-screen-lg px-4 md:px-8">
               <p class="mb-2 text-center font-bold uppercase text-blue-500 md:mb-3 lg:text-2xl">Misi</p>
-              <h2 class="bg-blue-500 rounded-lg p-4 tracking-wide mb-4 text-center capitalize text-sm md:text-xl text-white md:mb-6">{!! $sekolah->misi !!}
+              <h2 class="bg-blue-500 prose rounded-lg p-4 tracking-wide mb-4 text-center capitalize text-sm md:text-xl text-white md:mb-6">{!! $sekolah->misi !!}
               </h2>
           </div>
       </div>
