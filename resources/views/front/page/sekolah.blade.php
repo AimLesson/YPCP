@@ -1,60 +1,74 @@
 @extends('front.layout.app')
 @section('title', 'Home')
 @section('content')
-
-    {{-- Hero --}}
-    <section class="min-h-96 relative flex flex-1 shrink-0 items-center justify-center overflow-hidden bg-gray-100 py-16 shadow-lg md:py-20 xl:py-48">
-        <img src="{{ asset('storage/' . $sekolah->profile_bg) }}" loading="lazy" alt="Photo by Fakurian Design" class="absolute inset-0 h-full w-full object-cover object-center" />
-
-        <div class="absolute inset-0 bg-gray-500 mix-blend-multiply"></div>
-
-        <div class="mb-8 flex flex-wrap justify-between md:mb-16 top-12 z-10 px-4">
-            <div class="mb-6 flex w-full flex-col justify-center sm:mb-12 lg:mb-0 lg:w-1/3 lg:pb-24 lg:pt-48">
-              <h1 class="mb-4 text-4xl font-bold text-white sm:text-5xl md:mb-8 md:ms-8 md:text-6xl">{{ $sekolah->name }}</h1>
-      
-              <p class="max-w-md leading-relaxed text-gray-50 md:ms-8 xl:text-lg">{{ \Illuminate\Support\Str::limit(strip_tags($sekolah->company_profile), 100, '...') }}</p>
-            </div>
-      
-            <div class="mb-12 flex w-full md:mb-16 lg:w-2/3">
-              <div class="relative left-12 top-12 z-10 -ml-12 overflow-hidden rounded-lg bg-gray-100 shadow-lg md:left-16 md:top-16 lg:ml-0">
-                <img src="{{ asset('storage/' . $sekolah->profile_banner1) }}" loading="lazy" alt="Photo by Kaung Htet" 
-                  class="h-[300px] max-h-[400px] w-full object-contain object-center" />
+    <section>
+      <div class="max-w-screen-4xl">
+          <div id="static-carousel" class="relative" data-carousel="static">
+              <!-- Carousel wrapper -->
+              <div class="relative h-96 overflow-hidden md:h-[600px]">
+                  <!-- Slide 0 -->
+                  <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                      <img src="{{ asset('storage/' . $sekolah->profile_bg) }}" class="absolute block w-full h-full object-cover object-top"
+                          alt="Image 1">
+                      <div class="absolute left-0 bottom-1/4 transform -translate-y-1/2 bg-white bg-opacity-75 p-4">
+                          <h2 class="text-xl uppercase font-semibold text-gray-800">{{ $sekolah->name }}</h2>
+                      </div>
+                  </div>
+                  <!-- Slide 1 -->
+                  <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                      <img src="{{ asset('storage/' . $sekolah->profile_banner1) }}" class="absolute block w-full h-full object-cover"
+                          alt="Image 1">
+                  </div>
+                  <!-- Slide 2 -->
+                  <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                      <img src="{{ asset('storage/' . $sekolah->profile_banner2) }}" class="absolute block w-full h-full object-cover"
+                          alt="Image 2">
+                  </div>
               </div>
-            
-              <div class="overflow-hidden rounded-lg bg-gray-100 shadow-lg">
-                <img src="{{ asset('storage/' . $sekolah->profile_banner2) }}" loading="lazy" alt="Photo by Manny Moreno" 
-                  class="h-[300px] max-h-[400px] w-full object-contain object-center" />
+              <!-- Slider indicators -->
+              <div class="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2">
+                  <button type="button" class="w-3 h-3 rounded-full bg-gray-300" aria-current="true" aria-label="Slide 1"
+                      data-carousel-slide-to="0"></button>
+                  <button type="button" class="w-3 h-3 rounded-full bg-gray-300" aria-current="false"
+                      aria-label="Slide 2" data-carousel-slide-to="1"></button>
+                  <button type="button" class="w-3 h-3 rounded-full bg-gray-300" aria-current="false"
+                      aria-label="Slide 3" data-carousel-slide-to="2"></button>
               </div>
-            </div> 
-            
-            <div class="relative w-full max-w-4xl mx-auto overflow-hidden">
-              <div class="flex w-[500%] animate-scroll">
-                <img src="{{ asset('default.jpeg') }}" class="w-1/5 h-[300px] object-contain" alt="Image 1">
-                <img src="{{ asset('default.jpeg') }}" class="w-1/5 h-[300px] object-contain" alt="Image 2">
-                <img src="{{ asset('default.jpeg') }}" class="w-1/5 h-[300px] object-contain" alt="Image 3">
-                <img src="{{ asset('default.jpeg') }}" class="w-1/5 h-[300px] object-contain" alt="Image 4">
-                <img src="{{ asset('default.jpeg') }}" class="w-1/5 h-[300px] object-contain" alt="Image 5">
-              </div>
-            </div>
+              <!-- Slider controls -->
+              <button type="button"
+                  class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                  data-carousel-next>
+                  <span
+                      class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 group-hover:bg-white/50">
+                      <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                      </svg>
+                      <span class="sr-only">Next</span>
+                  </span>
+              </button>
           </div>
-    </section>
+      </div>
+  </section>
 
     {{-- Visi Misi --}}
-    <section>
-        <div class="bg-white py-6 sm:py-8 lg:py-12">
-            <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
-              <p class="mb-2 text-center font-semibold text-indigo-500 md:mb-3 lg:text-2xl">Visi</p>
-              <h2 class="mb-4 text-center text-xl font-bold text-gray-800 md:mb-6 lg:text-2xl">{!! str_replace(['<p>', '</p>'], '', $sekolah->visi) !!}</h2>
-            </div>
+    <section class="border-y-2 border-blue-300">
+      <div class="py-2 sm:py-4 lg:py-6">
+          <div class="mx-auto max-w-screen-md px-4 md:px-8">
+              <p class="mb-2 text-center font-bold uppercase text-blue-600 md:mb-3 lg:text-2xl">Visi</p>
+              <p class="bg-blue-500 rounded-lg tracking-wide p-4 text-center capitalize text-sm md:text-xl text-white md:mb-6">{!! str_replace(['<p>', '</p>'], '', $sekolah->visi) !!}
+              </p>
           </div>
+      </div>
 
-          <div class="bg-white py-6 sm:py-8 lg:py-12">
-            <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
-              <p class="mb-2 text-center font-semibold text-indigo-500 md:mb-3 lg:text-2xl">Misi</p>
-              <h2 class="mb-4 text-center text-xl font-bold text-gray-800 md:mb-6 lg:text-2xl">{!! $sekolah->misi !!}</h2>
-            </div>
+      <div class="bg-white py-2 sm:py-4 lg:py-6">
+          <div class="mx-auto max-w-screen-lg px-4 md:px-8">
+              <p class="mb-2 text-center font-bold uppercase text-blue-500 md:mb-3 lg:text-2xl">Misi</p>
+              <h2 class="bg-blue-500 rounded-lg p-4 tracking-wide mb-4 text-center capitalize text-sm md:text-xl text-white md:mb-6">{!! $sekolah->misi !!}
+              </h2>
           </div>
-    </section>
+      </div>
+  </section>
 
     {{-- Berita --}}
     <section>
@@ -99,7 +113,7 @@
     </section>
   
     {{-- Personalia --}}
-    <div class="bg-white py-6 sm:py-8 lg:py-12">
+    {{-- <div class="bg-white py-6 sm:py-8 lg:py-12">
       <div class="mx-auto max-w-screen-xl px-4 md:px-8">
         <!-- text - start -->
         <div class="mb-10 md:mb-16">
@@ -126,6 +140,6 @@
           @endforeach
         </div>
       </div>
-    </div>
+    </div> --}}
 
 @endsection
