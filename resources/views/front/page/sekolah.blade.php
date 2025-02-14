@@ -79,8 +79,8 @@
           </div>
       
           <div class="grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-8">
-            @foreach ( $sekolah->news as $n )
-              <div class="flex flex-col overflow-hidden rounded-lg border bg-white">
+            @foreach($sekolah->news->where('is_published', true)->take(4) as $n)
+            <div class="flex flex-col overflow-hidden rounded-lg border bg-white">
                 <a href={{ route('news.show', ['slug' => $n->slug, 'type' => 'sekolah']) }} class="group relative block h-48 overflow-hidden bg-gray-100 md:h-64">
                   <img src="{{ asset('storage/' . $n->image) }}" loading="lazy" alt="Photo by Minh Pham" class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
                 </a>
@@ -122,7 +122,7 @@
               </div>
       
               <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 md:gap-6 xl:gap-8">
-                  @foreach($sekolah->news->take(8) as $n)
+                @foreach($sekolah->news->where('is_published', true)->take(8) as $n)
                       <a href="#" class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80 {{ in_array($loop->iteration, [2,3,6,7]) ? 'md:col-span-2' : '' }}">
                           <img src="{{ asset($n->image ? 'storage/' . $n->image : 'default.jpeg') }}" loading="lazy" alt="News Image" class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
                           <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-50"></div>
