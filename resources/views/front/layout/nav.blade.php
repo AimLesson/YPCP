@@ -9,7 +9,7 @@
                   <p>Email: admin@bruderanpwt.sch.id</p>
                 </div>
             
-                <a href="https://bit.ly/PPDBBruderanKaritas" class="order-last inline-block w-full whitespace-nowrap rounded-lg bg-amber-500 px-4 py-2 text-center text-xs font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-700 focus-visible:ring active:bg-indigo-800 sm:order-none sm:w-auto md:text-sm">PPDB</a>
+                <a href="https://bit.ly/PPDBBruderanKaritas" target="_blank" rel="noopener noreferrer" class="order-last inline-block w-full whitespace-nowrap rounded-lg bg-amber-500 px-4 py-2 text-center text-xs font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-700 focus-visible:ring active:bg-indigo-800 sm:order-none sm:w-auto md:text-sm">PPDB</a>
               </div>
         </div>
         <!-- banner - end -->
@@ -76,9 +76,11 @@
                         <a href="{{route('allnews')}}" class="block py-2 pr-4 pl-3 text-gray-700 border-b md:hover:text-blue-700 uppercase font-semibold border-gray-100 hover:bg-blue-400 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 ">Berita</a>
                     </li>
                     <li>
-                        <a href="https://bit.ly/PPDBBruderanKaritas" class="block py-2 pr-4 pl-3 text-gray-700 border-b uppercase md:hover:text-blue-700 font-semibold border-gray-100 hover:bg-blue-400 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 ">PPDB</a>
+                        <a href="https://bit.ly/PPDBBruderanKaritas" target="_blank" rel="noopener noreferrer" class="block py-2 pr-4 pl-3 text-gray-700 border-b uppercase md:hover:text-blue-700 font-semibold border-gray-100 hover:bg-blue-400 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0">
+                            PPDB
+                        </a>
                     </li>
-                    <li>
+                                        <li>
                         <a href="{{route('eksis')}}" class="block py-2 pr-4 pl-3 text-gray-700 border-b uppercase md:hover:text-blue-700 font-semibold border-gray-100 hover:bg-blue-400 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 ">EKSIS</a>
                     </li>
                 </ul>
