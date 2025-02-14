@@ -13,7 +13,7 @@
                            
                 <!-- News Content (Displayed First) -->
                 <div class="prose max-w-none text-lg text-justify">
-                    {!! nl2br(e($news->content)) !!}
+                    {{$news->content}}
                 </div>
 
                         @if ($news->youtube_link || $news->tiktok_link || $news->instagram_link)
