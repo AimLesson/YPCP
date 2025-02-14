@@ -95,8 +95,13 @@
             <div class="grid gap-8 md:grid-cols-2 lg:gap-12 my-8">
                 <div>
                     <div class="h-64 max-h-96 overflow-hidden rounded-xl bg-gray-100 shadow-xl md:h-auto">
-                        <img src="{{ asset('slide/3.jpg') }}" loading="lazy" alt="Photo by Martin Sanchez"
-                            class="h-full w-full max-h-96 object-cover object-center" />
+                        {{-- <img src="{{ asset('slide/3.jpg') }}" loading="lazy" alt="Photo by Martin Sanchez"
+                            class="h-full w-full max-h-96 object-cover object-center" /> --}}
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/NSrnSr01bU8?si=QY-02vSFFtOeEllK"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                        </iframe>
                     </div>
                 </div>
 
@@ -129,6 +134,21 @@
             </div>
         </div>
     </section>
+
+    {{-- Our Channel --}}
+    <div class="bg-white py-6 sm:py-8 lg:py-12">
+        <div class="mb-4 flex items-center justify-between gap-8 sm:mb-8 md:mb-12">
+            <div class="mx-auto max-w-screen-2xl flex items-center gap-12">
+                <h2 class="text-2xl font-semibold uppercase text-gray-800 lg:text-3xl">Our Channel</h2>
+            </div>
+        </div>
+        <div class="flex justify-center py-6">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/NSrnSr01bU8?si=QY-02vSFFtOeEllK"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </div>
 
     {{-- Sekolah --}}
     <section>
@@ -202,6 +222,8 @@
             </div>
         </div>
     </section>
+
+    
 
     {{-- Gallery --}}
     <div class="bg-white py-6 sm:py-8 lg:py-12">

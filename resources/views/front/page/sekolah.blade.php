@@ -103,7 +103,7 @@
     <div class="bg-white py-6 sm:py-8 lg:py-12">
       <div class="mb-4 flex items-center justify-between gap-8 sm:mb-8 md:mb-12">
           <div class="mx-auto max-w-screen-2xl flex items-center gap-12">
-              <h2 class="text-2xl font-semibold uppercase text-gray-800 lg:text-3xl">Gallery</h2>
+              <h2 class="text-2xl font-semibold uppercase text-gray-800 lg:text-3xl">Our Channel</h2>
           </div>
       </div>
       <div class="flex justify-center py-6">
