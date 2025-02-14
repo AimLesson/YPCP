@@ -94,18 +94,13 @@
             <p class="text-center uppercase font-semibold text-black md:mb-3 lg:text-2xl">{{ $profile->name }}</p>
             <div class="grid gap-8 md:grid-cols-2 lg:gap-12 my-8">
                 <div>
-                    <div class="max-w-lg overflow-hidden rounded-xl bg-gray-100 shadow-xl mx-auto">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/NSrnSr01bU8?si=QY-02vSFFtOeEllK"
-                            title="YouTube video player" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
-                            class="w-full h-auto aspect-video">
-                        </iframe>
+                    <div class="h-64 max-h-96 overflow-hidden rounded-xl bg-gray-100 shadow-xl md:h-auto">
+                        <img src="{{ asset('slide/3.jpg') }}" loading="lazy" alt="Photo by Martin Sanchez"
+                            class="h-full w-full max-h-96 object-cover object-center" />
                     </div>
-                    
                 </div>
 
-                <div>
+                <div class="md:pt-8">
                     <h2 class="mb-2 text-center text-xl font-semibold text-gray-800 sm:text-2xl md:mb-4 md:text-left">About
                         us</h2>
                     <p class="mb-6 text-gray-800 sm:text-lg md:mb-8">
