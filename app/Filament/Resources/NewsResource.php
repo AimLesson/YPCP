@@ -42,6 +42,7 @@ class NewsResource extends Resource
                 Forms\Components\TextInput::make('instagram_link')->label('Instagram Link')->url()->placeholder('https://www.instagram.com/p/...')->nullable(),
                 Forms\Components\TextInput::make('tiktok_link')->label('TikTok Link')->url()->placeholder('https://www.tiktok.com/@username/video/...')->nullable(),
                 Forms\Components\Toggle::make('is_published')->label('Published')->default(false)->visible(fn() => auth()->user()->role === 'superadmin' || auth()->user()->role === 'yayasan' || auth()->user()->role === 'kepala_sekolah'),
+                Forms\Components\Toggle::make('is_favorite')->label('Favorite')->default(false)->visible(fn() => auth()->user()->role === 'superadmin' || auth()->user()->role === 'yayasan' || auth()->user()->role === 'kepala_sekolah'),
             ]);
     }
 
@@ -59,6 +60,13 @@ class NewsResource extends Resource
                 Tables\Columns\TextColumn::make('branch.name')->label('Branch')->searchable(),
                 Tables\Columns\BooleanColumn::make('is_published')
                     ->label('Published')
+                    ->trueIcon('heroicon-o-check-circle') // Icon for true status
+                    ->falseIcon('heroicon-o-x-circle')   // Icon for false status
+                    ->trueColor('success')              // Green color for true status
+                    ->falseColor('danger')              // Red color for false status
+                    ->sortable(), // Optionally allow sorting by this column
+                Tables\Columns\BooleanColumn::make('is_favorite')
+                    ->label('Favorite')
                     ->trueIcon('heroicon-o-check-circle') // Icon for true status
                     ->falseIcon('heroicon-o-x-circle')   // Icon for false status
                     ->trueColor('success')              // Green color for true status

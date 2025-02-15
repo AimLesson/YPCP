@@ -20,6 +20,7 @@ class News extends Model
         'tiktok_link',
         'branch_id',
         'views', 
+        'is_favorite',
     ];
 
     public function branch()
@@ -32,6 +33,13 @@ class News extends Model
         parent::boot();
     
         static::saving(function ($news) {
+
+            if ($news->is_favorite) {
+                // Unset previous favorite news in the same branch
+                News::where('branch_id', $news->branch_id)
+                    ->where('id', '!=', $news->id)
+                    ->update(['is_favorite' => false]);
+            }
 
             if (empty($news->slug)) {
                 $slug = \Illuminate\Support\Str::slug($news->title);
