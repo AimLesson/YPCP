@@ -94,7 +94,7 @@
                 {{-- Heading --}}
                 <div class="col-span-2">
                     <p class="mb-2 text-center font-semibold text-indigo-500 md:mb-3 lg:text-lg">Introducing</p>
-                    <h2 class="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-6 lg:text-3xl">EKSPRESI MAHASISWA</h2>
+                    <h2 class="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-6 lg:text-3xl">EKSPRESI SISWA</h2>
                     <p class="mx-auto max-w-screen-md text-center text-gray-500 md:text-lg">Halaman ini menampilkan berbagai karya kreatif siswa Bruderan Karitas. Selamat menikmati dan teruslah berkarya!</p>
                 </div>
                 {{-- Berita --}}
