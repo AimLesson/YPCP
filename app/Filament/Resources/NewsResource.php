@@ -33,7 +33,8 @@ class NewsResource extends Resource
                     ->label('Branch')
                     ->relationship('branch', 'name')
                     ->searchable()
-                    ->preload(),
+                    ->preload()
+                    ->required(),
                 Forms\Components\TextInput::make('title')->required()->maxLength(255),
                 Forms\Components\RichEditor::make('content')->required()->maxLength(65535),
                 Forms\Components\FileUpload::make('image')->directory('news-images')->image()->maxSize(2048)->required(),
