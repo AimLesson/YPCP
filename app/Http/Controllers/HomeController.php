@@ -15,9 +15,11 @@ class HomeController extends Controller
         $profile = Profile::first(); 
         $schools = Branch::all();
         $personalia = Personalia::whereNull('branch_id')->get();
-        $news = News::with('branch')->where('is_published', true)->orderBy('created_at', 'desc')->paginate(5);
+        $news = News::with('branch')->where('is_published', true)->orderBy('created_at', 'desc')->get();
+        $favoriteNews = News::where('is_favorite', true)->get();
 
-        return view('front.page.home', compact('profile', 'schools','news', 'personalia'));
+
+        return view('front.page.home', compact('profile', 'schools','news', 'personalia', 'favoriteNews'));
     }
 
     public function show($slug)

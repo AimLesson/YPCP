@@ -186,42 +186,40 @@
                 </div>
 
                 <div class="grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-5 xl:gap-8">
-                    @foreach ($news as $n)
-                        @if ($n->is_favorite)
-                            <div class="flex flex-col overflow-hidden rounded-lg border bg-white">
-                                <a href="{{ route('news.show', $n->slug) }}"
-                                    class="group relative block h-48 overflow-hidden bg-gray-100 md:h-64">
-                                    <img src="{{ asset($n->image ? 'storage/' . $n->image : 'default.jpeg') }}"
-                                        loading="lazy" alt="Photo by Minh Pham"
-                                        class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
-                                </a>
+                    @foreach ($favoriteNews as $n)
+                        <div class="flex flex-col overflow-hidden rounded-lg border bg-white">
+                            <a href="{{ route('news.show', $n->slug) }}"
+                                class="group relative block h-48 overflow-hidden bg-gray-100 md:h-64">
+                                <img src="{{ asset($n->image ? 'storage/' . $n->image : 'default.jpeg') }}"
+                                    loading="lazy" alt="Photo by Minh Pham"
+                                    class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
+                            </a>
 
-                                <div class="flex flex-1 flex-col p-4 sm:p-6">
-                                    <h2 class="mb-2 text-lg font-semibold text-gray-800">
-                                        <a href="{{ route('news.show', $n->slug) }}"
-                                            class="transition duration-100 hover:text-indigo-500 active:text-indigo-600">{{ $n->title }}</a>
-                                    </h2>
+                            <div class="flex flex-1 flex-col p-4 sm:p-6">
+                                <h2 class="mb-2 text-lg font-semibold text-gray-800">
+                                    <a href="{{ route('news.show', $n->slug) }}"
+                                        class="transition duration-100 hover:text-indigo-500 active:text-indigo-600">{{ $n->title }}</a>
+                                </h2>
 
-                                    <p class="mb-8 text-gray-500">
-                                        {{ \Illuminate\Support\Str::limit(strip_tags($n->content), 100, '...') }}</p>
+                                <p class="mb-8 text-gray-500">
+                                    {{ \Illuminate\Support\Str::limit(strip_tags($n->content), 100, '...') }}</p>
 
-                                    <div class="mt-auto flex items-end justify-between">
-                                        <div class="flex items-center gap-2">
-                                            <div class="h-10 w-10 shrink-0 overflow-hidden rounded-full bg-gray-100">
-                                                <img src="{{ asset($n->branch->logo ? 'storage/' . $n->branch->logo : 'default.jpeg') }}"
-                                                    loading="lazy" alt="Photo by Brock Wegner"
-                                                    class="h-full w-full object-cover object-center" />
-                                            </div>
+                                <div class="mt-auto flex items-end justify-between">
+                                    <div class="flex items-center gap-2">
+                                        <div class="h-10 w-10 shrink-0 overflow-hidden rounded-full bg-gray-100">
+                                            <img src="{{ asset($n->branch->logo ? 'storage/' . $n->branch->logo : 'default.jpeg') }}"
+                                                loading="lazy" alt="Photo by Brock Wegner"
+                                                class="h-full w-full object-cover object-center" />
+                                        </div>
 
-                                            <div>
-                                                <span class="block text-indigo-500">{{ $n->branch->name }}</span>
-                                                <span class="block text-sm text-gray-400">{{ $n->created_at }}</span>
-                                            </div>
+                                        <div>
+                                            <span class="block text-indigo-500">{{ $n->branch->name }}</span>
+                                            <span class="block text-sm text-gray-400">{{ $n->created_at }}</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        @endif
+                        </div>
                     @endforeach
                 </div>
             </div>
