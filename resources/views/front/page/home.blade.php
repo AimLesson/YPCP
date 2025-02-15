@@ -159,7 +159,7 @@
                     Sekolah Bruderan Karitas</h2>
 
                 <div class="mb-4 grid grid-cols-2 gap-4 sm:grid-cols-3 md:mb-8 md:grid-cols-5 md:gap-6 xl:gap-8">
-                    @foreach ($schools as $school)
+                    @foreach ($schools->take(5) as $school)
                         <a href="{{ route('sekolah.show', $school->slug) }}"
                             class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80">
                             <img src="{{ asset('storage/' . $school->logo) }}" loading="lazy" alt="{{ $school->name }}"
@@ -185,7 +185,7 @@
                         Sekolah Bruderan Karitas</h2>
                 </div>
 
-                <div class="grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-5 xl:gap-8">
+                <div class="grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-3 xl:gap-8">
                     @foreach ($favoriteNews as $n)
                         <div class="flex flex-col overflow-hidden rounded-lg border bg-white">
                             <a href="{{ route('news.show', $n->slug) }}"
