@@ -206,12 +206,6 @@
 
                                 <div class="mt-auto flex items-end justify-between">
                                     <div class="flex items-center gap-2">
-                                        <div class="h-10 w-10 shrink-0 overflow-hidden rounded-full bg-gray-100">
-                                            <img src="{{ asset($n->branch->logo ? 'storage/' . $n->branch->logo : 'default.jpeg') }}"
-                                                loading="lazy" alt="Photo by Brock Wegner"
-                                                class="h-full w-full object-cover object-center" />
-                                        </div>
-
                                         <div>
                                             <span class="block text-indigo-500">{{ $n->branch->name }}</span>
                                             <span class="block text-sm text-gray-400">{{ $n->created_at }}</span>
