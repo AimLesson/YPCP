@@ -60,7 +60,7 @@
                         <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" class="flex items-center uppercase font-semibold justify-between w-full py-2 px-3 text-gray-700 rounded-sm hover:bg-blue-400 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto"> 
                             Sekolah
                         </button>
-                        <div id="dropdownNavbar" class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow-lg w-55">
+                        <div id="dropdownNavbar" class="z-50 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow-lg w-55">
                             <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownLargeButton">
                                 @foreach ($schools as $sekolah)
                                     <li>

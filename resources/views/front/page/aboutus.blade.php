@@ -26,7 +26,7 @@
         
                 @if (!empty($profile) && !empty($profile->about))
                     <p class="mb-6 text-gray-500 sm:text-lg md:mb-8">
-                        {{ \Illuminate\Support\Str::limit(strip_tags($profile->about), 200, '...') }}
+                        {!! str($profile->about)->sanitizeHtml()!!}
                     </p>
                 @else
                     <p class="mb-6 text-gray-500 sm:text-lg md:mb-8">
