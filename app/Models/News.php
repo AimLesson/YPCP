@@ -21,6 +21,7 @@ class News extends Model
         'branch_id',
         'views', 
         'is_favorite',
+        'is_prestasi',
     ];
 
     public function branch()
@@ -39,6 +40,13 @@ class News extends Model
                 News::where('branch_id', $news->branch_id)
                     ->where('id', '!=', $news->id)
                     ->update(['is_favorite' => false]);
+            }
+
+            if ($news->is_prestasi) {
+                // Unset previous prestasi news in the same branch
+                News::where('branch_id', $news->branch_id)
+                    ->where('id', '!=', $news->id)
+                    ->update(['is_prestasi' => false]);
             }
 
             if (empty($news->slug)) {

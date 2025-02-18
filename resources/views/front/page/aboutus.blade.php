@@ -8,7 +8,7 @@
       
             <h2 class="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-6 lg:text-3xl">{{$profile->name}}</h2>
       
-            <p class="mx-auto max-w-screen-md text-center text-gray-500 md:text-lg">{{ \Illuminate\Support\Str::limit(strip_tags($profile->about), 100, '...') }}</p>
+            <p class="mx-auto max-w-screen-md text-center text-gray-500 md:text-lg">{!! str($profile->company_profile)->sanitizeHtml()!!}</p>
           </div>
         </div>
       </div>

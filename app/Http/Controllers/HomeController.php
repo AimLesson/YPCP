@@ -17,9 +17,11 @@ class HomeController extends Controller
         $personalia = Personalia::whereNull('branch_id')->get();
         $news = News::with('branch')->where('is_published', true)->orderBy('created_at', 'desc')->get();
         $favoriteNews = News::with('branch')->where('is_favorite', true)->get();
+        $prestasiNews = News::with('branch')->where('is_prestasi', true)->get();
 
 
-        return view('front.page.home', compact('profile', 'schools','news', 'personalia', 'favoriteNews'));
+
+        return view('front.page.home', compact('profile', 'schools','news', 'personalia', 'favoriteNews', 'prestasiNews'));
     }
 
     public function show($slug)

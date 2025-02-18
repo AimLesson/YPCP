@@ -51,6 +51,33 @@
         </div>
     </section>
 
+    <div class="bg-white py-6 sm:py-8 lg:py-12">
+        <div class="mx-auto max-w-screen-xl px-4 md:px-8">
+        <div class="grid gap-8 md:grid-cols-2 lg:gap-12">
+            <div>
+            <div class="h-64 overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-auto">
+                <img src="{{ asset('storage/' . $sekolah->logo) }}" loading="lazy" alt="Photo by Martin Sanchez" class="h-full w-full object-cover object-center" />
+            </div>
+            </div>
+    
+            <div class="md:pt-8">  
+                <h1 class="mb-4 text-center text-2xl font-bold text-indigo-500 sm:text-3xl md:mb-6 md:text-left">About Us</h1>
+        
+                @if (!empty($sekolah) && !empty($sekolah->about))
+                    <p class="mb-6 text-gray-500 sm:text-lg md:mb-8">
+                        {!! str($sekolah->about)->sanitizeHtml()!!}
+                    </p>
+                @else
+                    <p class="mb-6 text-gray-500 sm:text-lg md:mb-8">
+                        No additional information available about this profile.
+                    </p>
+                @endif
+            
+            </div>
+        </div>
+        </div>
+    </div>
+
     {{-- Berita --}}
     <section>
         <div class="bg-white py-6 sm:py-8 lg:py-12">

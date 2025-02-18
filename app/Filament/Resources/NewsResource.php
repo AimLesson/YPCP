@@ -34,7 +34,8 @@ class NewsResource extends Resource
                     ->relationship('branch', 'name')
                     ->searchable()
                     ->preload()
-                    ->required(),
+                    ->required()
+                    ->default(fn() => auth()->user()->branch_id),
                 Forms\Components\TextInput::make('title')->required()->maxLength(255),
                 Forms\Components\RichEditor::make('content')->required()->maxLength(65535),
                 Forms\Components\FileUpload::make('image')->directory('news-images')->image()->maxSize(2048)->required(),
@@ -44,6 +45,7 @@ class NewsResource extends Resource
                 Forms\Components\TextInput::make('tiktok_link')->label('TikTok Link')->url()->placeholder('https://www.tiktok.com/@username/video/...')->nullable(),
                 Forms\Components\Toggle::make('is_published')->label('Published')->default(false)->visible(fn() => auth()->user()->role === 'superadmin' || auth()->user()->role === 'yayasan' || auth()->user()->role === 'kepala_sekolah'),
                 Forms\Components\Toggle::make('is_favorite')->label('Favorite')->default(false)->visible(fn() => auth()->user()->role === 'superadmin' || auth()->user()->role === 'yayasan' || auth()->user()->role === 'kepala_sekolah'),
+                Forms\Components\Toggle::make('is_prestasi')->label('Prestasi')->default(false)->visible(fn() => auth()->user()->role === 'superadmin' || auth()->user()->role === 'yayasan' || auth()->user()->role === 'kepala_sekolah'),
             ]);
     }
 
@@ -58,6 +60,8 @@ class NewsResource extends Resource
             })
             ->columns([
                 Tables\Columns\TextColumn::make('title')->searchable(),
+                Tables\Columns\ImageColumn::make('image')->rounded(),
+                Tables\Columns\TextColumn::make('author')->label('Author')->searchable(),
                 Tables\Columns\TextColumn::make('branch.name')->label('Branch')->searchable(),
                 Tables\Columns\BooleanColumn::make('is_published')
                     ->label('Published')
@@ -73,8 +77,13 @@ class NewsResource extends Resource
                     ->trueColor('success')              // Green color for true status
                     ->falseColor('danger')              // Red color for false status
                     ->sortable(), // Optionally allow sorting by this column
-                Tables\Columns\ImageColumn::make('image')->rounded(),
-                Tables\Columns\TextColumn::make('author')->label('Author')->searchable(),
+                Tables\Columns\BooleanColumn::make('is_prestasi')
+                    ->label('Prestasi')
+                    ->trueIcon('heroicon-o-check-circle') // Icon for true status
+                    ->falseIcon('heroicon-o-x-circle')   // Icon for false status
+                    ->trueColor('success')              // Green color for true status
+                    ->falseColor('danger')              // Red color for false status
+                    ->sortable(), // Optionally allow sorting by this column
                 Tables\Columns\TextColumn::make('created_at')->label('Created')->dateTime(),
             ])
             ->actions([

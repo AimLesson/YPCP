@@ -102,8 +102,8 @@
                 </div>
 
                 <div class="md:pt-8">
-                    <h2 class="mb-2 text-center text-xl font-semibold text-gray-800 sm:text-2xl md:mb-4 md:text-left">About
-                        us</h2>
+                    <h2 class="mb-2 text-center text-xl font-semibold text-gray-800 sm:text-2xl md:mb-4 md:text-left">
+                        Tentang Kami</h2>
                     <p class="mb-6 text-gray-800 sm:text-lg md:mb-8">
                         {!! str_replace(['<p>', '</p>'], '', $profile->about) !!}
                     </p>
@@ -131,6 +131,57 @@
                     class="prose bg-blue-500 rounded-lg p-4 tracking-wide mb-4 text-center capitalize text-sm md:text-xl text-white md:mb-6">
                     {!! $profile->misi !!}
                 </h2>
+            </div>
+        </div>
+    </section>
+
+    {{-- Prestasi --}}
+    <section>
+        <div class="bg-white py-6 sm:py-8 lg:py-12">
+            <div class="mx-auto max-w-screen-3xl px-4 md:px-8">
+                <div class="mb-10 md:mb-16">
+                    <h2 class="mb-4 text-center uppercase text-2xl font-semibold text-gray-800 md:mb-6 lg:text-3xl">
+                        Prestasi
+                        Sekolah Bruderan Karitas</h2>
+                </div>
+
+                <div class="grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-5 xl:grid-cols-5 xl:gap-8">
+                    @foreach ($prestasiNews as $n)
+                        <div class="flex flex-col overflow-hidden rounded-lg border bg-white">
+                            <a href="{{ route('news.show', $n->slug) }}"
+                                class="group relative block h-48 overflow-hidden bg-gray-100 md:h-64">
+                                <img src="{{ asset($n->image ? 'storage/' . $n->image : 'default.jpeg') }}" loading="lazy"
+                                    alt="Photo by Minh Pham"
+                                    class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
+                            </a>
+
+                            <div class="flex flex-1 flex-col p-4 sm:p-6">
+                                <h2 class="mb-2 text-lg font-semibold text-gray-800">
+                                    <a href="{{ route('news.show', $n->slug) }}"
+                                        class="transition duration-100 hover:text-indigo-500 active:text-indigo-600">{{ $n->title }}</a>
+                                </h2>
+
+                                <p class="mb-8 text-gray-500">
+                                    {{ \Illuminate\Support\Str::limit(strip_tags($n->content), 100, '...') }}</p>
+
+                                <div class="mt-auto flex items-end justify-between">
+                                    <div class="flex items-center gap-2">
+                                        <div class="h-10 w-10 shrink-0 overflow-hidden rounded-full bg-gray-100">
+                                            <img src="{{ asset($n->branch->logo ? 'storage/' . $n->branch->logo : 'default.jpeg') }}"
+                                                loading="lazy" alt="Photo by Brock Wegner"
+                                                class="h-full w-full object-cover object-center" />
+                                        </div>
+
+                                        <div>
+                                            <span class="block text-indigo-500">{{ $n->branch->name }}</span>
+                                            <span class="block text-sm text-gray-400">{{ $n->created_at }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
             </div>
         </div>
     </section>
@@ -226,8 +277,6 @@
         </div>
     </section>
 
-
-
     {{-- Gallery --}}
     <div class="bg-white py-6 sm:py-8 lg:py-12">
         <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
@@ -239,7 +288,7 @@
 
             <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 md:gap-6 xl:gap-8">
                 @foreach ($news->take(8) as $n)
-                    <a href="#"
+                    <a href="{{ route('news.show', $n->slug) }}"
                         class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80 {{ in_array($loop->iteration, [2, 3, 6, 7]) ? 'md:col-span-2' : '' }}">
                         <img src="{{ asset($n->image ? 'storage/' . $n->image : 'default.jpeg') }}" loading="lazy"
                             alt="News Image"
