@@ -5,7 +5,14 @@
             
             <!-- Left Section (Profile Name & Motto) -->
             <div class="mb-6 md:mb-0">
-                <h2 class="text-xl font-bold md:text-2xl">{{ $profile->name }}</h2>
+                <h2 class="text-xl font-bold md:text-2xl">
+                    @if (isset($profile))
+                        {{ $profile->name }}
+                    @elseif(isset($sekolah))
+                        {{ $sekolah->name }}
+                    @endif
+            </div>
+                </h2>
                 <p class="text-gray-800">Beriman, Berkarakter Kasih, Berwawasan Global</p>
             </div>
 
