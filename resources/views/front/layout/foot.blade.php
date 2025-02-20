@@ -20,7 +20,11 @@
             <div class="text-center md:text-right">
                 <h2 class="text-xl font-bold md:text-2xl">Alamat Kami</h2>
                 <p class="text-black">
-                    {{ $profile->address }}
+                    @if (isset($profile))
+                        {{ $profile->address }}
+                    @elseif(isset($sekolah))
+                        {{ $sekolah->address }}
+                    @endif
                 </p>
 
                 <!-- Social Media Icons with Custom Images -->
