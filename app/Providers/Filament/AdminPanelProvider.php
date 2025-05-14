@@ -8,6 +8,7 @@ use Filament\Widgets;
 use Filament\PanelProvider;
 use Filament\Facades\Filament;
 use Filament\Support\Colors\Color;
+use Hasnayeen\Themes\ThemesPlugin;
 use Filament\Navigation\UserMenuItem;
 use Filament\Forms\Components\FileUpload;
 use Filament\Http\Middleware\Authenticate;
@@ -34,7 +35,7 @@ class AdminPanelProvider extends PanelProvider
             ->path('admin')
             ->login()
             ->colors([
-                'primary' => Color::Teal,
+                'primary' => Color::Amber,
             ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
@@ -55,6 +56,7 @@ class AdminPanelProvider extends PanelProvider
                 SubstituteBindings::class,
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
+                \Hasnayeen\Themes\Http\Middleware\SetTheme::class
             ])
             ->authMiddleware([
                 Authenticate::class,
@@ -71,7 +73,14 @@ class AdminPanelProvider extends PanelProvider
                         hasAvatars: true, 
                         slug: 'my-profile' 
                     )
-                ->avatarUploadComponent(fn() => FileUpload::make('avatar'))
+                ->avatarUploadComponent(fn() => FileUpload::make('avatar')),
+                ThemesPlugin::make()
+                ->registerTheme(
+                    [
+                        \Hasnayeen\Themes\Themes\Sunset::class,
+                    ],
+                    override: true,
+                )
             ])
             ->brandLogo(asset('ypcp/logo-yayasan-big.png'))->brandLogoHeight('4rem')->favicon(asset('ypcp/logo-yayasan.png'));;
             
