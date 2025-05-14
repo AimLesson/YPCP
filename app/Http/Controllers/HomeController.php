@@ -91,7 +91,7 @@ class HomeController extends Controller
     {
         $profile = Profile::first(); 
         $schools = Branch::all();
-        $news = News::with('branch')->where('is_published', true)->orderBy('created_at', 'desc')->paginate(4);
+        $news = News::with('branch')->where('is_laporan', true)->orderBy('created_at', 'desc');
 
         return view('front.page.eksis', compact('profile', 'schools','news'));
     }

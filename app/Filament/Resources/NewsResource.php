@@ -46,6 +46,7 @@ class NewsResource extends Resource
                 Forms\Components\Toggle::make('is_published')->label('Published')->default(false)->visible(fn() => auth()->user()->role === 'superadmin' || auth()->user()->role === 'yayasan' || auth()->user()->role === 'kepala_sekolah'),
                 Forms\Components\Toggle::make('is_favorite')->label('Favorite')->default(false)->visible(fn() => auth()->user()->role === 'superadmin' || auth()->user()->role === 'yayasan' || auth()->user()->role === 'kepala_sekolah'),
                 Forms\Components\Toggle::make('is_prestasi')->label('Prestasi')->default(false)->visible(fn() => auth()->user()->role === 'superadmin' || auth()->user()->role === 'yayasan' || auth()->user()->role === 'kepala_sekolah'),
+                Forms\Components\Toggle::make('is_laporan')->label('Laporan')->default(false)->visible(fn() => auth()->user()->role === 'superadmin' || auth()->user()->role === 'yayasan' || auth()->user()->role === 'kepala_sekolah'),
             ]);
     }
 
@@ -54,7 +55,7 @@ class NewsResource extends Resource
         return $table
             ->modifyQueryUsing(function (Builder $query) {
                 $branchId = Auth::user()->branch_id;
-                if(auth()->user()->role !== 'superadmin' && auth()->user()->role !== 'yayasan') {
+                if (auth()->user()->role !== 'superadmin' && auth()->user()->role !== 'yayasan') {
                     $query->where('branch_id', $branchId);
                 }
             })
@@ -84,13 +85,20 @@ class NewsResource extends Resource
                     ->trueColor('success')              // Green color for true status
                     ->falseColor('danger')              // Red color for false status
                     ->sortable(), // Optionally allow sorting by this column
+                Tables\Columns\BooleanColumn::make('is_laporan')
+                    ->label('Laporan')
+                    ->trueIcon('heroicon-o-check-circle') // Icon for true status
+                    ->falseIcon('heroicon-o-x-circle')   // Icon for false status
+                    ->trueColor('success')              // Green color for true status
+                    ->falseColor('danger')              // Red color for false status
+                    ->sortable(), // Optionally allow sorting by this column
                 Tables\Columns\TextColumn::make('created_at')->label('Created')->dateTime(),
             ])
             ->actions([
                 Tables\Actions\EditAction::make()->visible(
-                    fn($record) => auth()->user()->role === 'superadmin' 
-                        || auth()->user()->role === 'yayasan' 
-                        || auth()->user()->branch_id === $record->branch_id,
+                    fn($record) => auth()->user()->role === 'superadmin'
+                    || auth()->user()->role === 'yayasan'
+                    || auth()->user()->branch_id === $record->branch_id,
                 ),
                 Tables\Actions\DeleteAction::make()
                     ->visible(fn() => auth()->user()->role === 'superadmin' || auth()->user()->role === 'yayasan'),

@@ -8,4 +8,4 @@ Route::get('/sekolah/{slug}', [HomeController::class, 'show'])->name('sekolah.sh
 Route::get('/news/{slug}/{type?}', [HomeController::class, 'news'])->name('news.show');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/berita', [HomeController::class, 'allnews'])->name('allnews');
-Route::get('/eksis', [HomeController::class, 'eksis'])->name('eksis');
+Route::get('/laporan', [HomeController::class, 'eksis'])->name('eksis');
