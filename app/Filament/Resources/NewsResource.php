@@ -34,11 +34,11 @@ class NewsResource extends Resource
                     ->relationship('branch', 'name')
                     ->searchable()
                     ->preload()
-                    ->required()
+                    ->required()->label('Sekolah')
                     ->default(fn() => auth()->user()->branch_id),
                 Forms\Components\TextInput::make('title')->required()->maxLength(255),
-                Forms\Components\RichEditor::make('content')->required()->maxLength(65535),
-                Forms\Components\FileUpload::make('image')->directory('news-images')->image()->maxSize(2048)->required(),
+                Forms\Components\FileUpload::make('image')->directory('news-images')->image()->maxSize(2048)->required()->columnSpan('full'),
+                Forms\Components\RichEditor::make('content')->required()->maxLength(65535)->columnSpan('full'),
                 Forms\Components\TextInput::make('author')->nullable()->maxLength(255)->required(),
                 Forms\Components\TextInput::make('youtube_link')->label('YouTube Link')->url()->placeholder('https://www.youtube.com/watch?v=...')->nullable(),
                 Forms\Components\TextInput::make('instagram_link')->label('Instagram Link')->url()->placeholder('https://www.instagram.com/p/...')->nullable(),

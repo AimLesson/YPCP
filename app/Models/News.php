@@ -22,6 +22,7 @@ class News extends Model
         'views', 
         'is_favorite',
         'is_prestasi',
+        'is_laporan',
     ];
 
     public function branch()
