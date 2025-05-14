@@ -91,9 +91,12 @@ class HomeController extends Controller
     {
         $profile = Profile::first(); 
         $schools = Branch::all();
-        $news = News::where('is_laporan', true)->orderBy('created_at', 'desc');
+        $newsQuery = News::where('is_laporan', true)->orderBy('created_at', 'desc');
+        $newsCount = $newsQuery->count(); // Log the count of matching news
+        \Log::info("Number of news matching 'is_laporan' query: {$newsCount}");
+        $news = $newsQuery->get();
 
-        return view('front.page.eksis', compact('profile', 'schools','news'));
+        return view('front.page.eksis', compact('profile', 'schools', 'news'));
     }
     
     
