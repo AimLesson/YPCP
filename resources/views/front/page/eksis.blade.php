@@ -98,7 +98,7 @@
                         Sekolah Bruderan Karitas</h2>
                 </div>
 
-                <div class="grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-5 xl:gap-8">
+                <div class="grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-8">
                     @foreach ($news as $n)
                         <div class="flex flex-col overflow-hidden rounded-lg border bg-white">
                             <a href="{{ route('news.show', $n->slug) }}"
